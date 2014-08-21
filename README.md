@@ -8,7 +8,7 @@ A simple server-side database extension using INI files. A port of the project f
 This is still under development with no release at this time. Will keep you posted.
 
 ** How to Install
-
+~~~
 sudo -i 
 cd /etc/apt/sources.list.d
 echo "deb http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe multiverse" >ia32-libs-raring.list
@@ -19,3 +19,4 @@ exit
 git clone <reponame>
 cd <reponame>
 ./build.sh
+~~~
