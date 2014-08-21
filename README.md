@@ -7,7 +7,7 @@ A simple server-side database extension using INI files. A port of the project f
 
 This is still under development with no release at this time. Will keep you posted.
 
-** How to Install
+## How to Install
 ~~~
 sudo -i 
 cd /etc/apt/sources.list.d
