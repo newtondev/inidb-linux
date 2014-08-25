@@ -20,3 +20,10 @@ git clone <reponame>
 cd <reponame>
 ./build.sh
 ~~~
+
+How to use:
+To use "iniDB" in your mission, install the extension in your ARMA2 or ARMA3 directory by copying the entire "@inidb" folder included in the download to your root directory.
+Don't forget to copy over over or create the /db/ folder.
+It should look like: /Arma 3/@inidbi/iniDB.so
+It should look like: /Arma 3/@inidbi/db/
+It should look like: /Arma 3/@inidbi/Addons/inidbi.pbo
