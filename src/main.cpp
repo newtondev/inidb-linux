@@ -7,7 +7,7 @@
 #include "ini.h"
 #include "logger.h"
 
-#define INIDB_VERSION_NUMBER "1.2"
+#define INIDB_VERSION_NUMBER "1.5"
 
 extern "C"
 {
