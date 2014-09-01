@@ -8,4 +8,7 @@ do
   g++ -Wall -fPIC -g -c src/$i.cpp -o bin/$i.o
 done
 
+FILE_LIST=`ls bin/*.o`
+g++ -shared -Wl,-soname,inidb.so -o inidb.so $FILE_LIST
+
 #g++ -Wall -shared -fPIC -m32 -o bin/libmyext.so src/libmyext.cpp

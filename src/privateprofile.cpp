@@ -158,20 +158,24 @@ int write_private_profile_string(const char *section, const char *entry,
   char tmp_name[15] = "PRIVPROFXXXXXX";
   char buff[MAX_LINE_LENGTH];
   char t_section[MAX_LINE_LENGTH];
-  int len = strlen(entry);
-  int tmpfd = mkstemp(tmp_name);	// Get a temporary file name to copy to
+  int len = 0;
+  if (entry != NULL) len = strlen(entry);
 
   sprintf(t_section, "[%s]", section);	// Format the section name
 
   if (!(rfp = fopen(file_name, "r")) )	// If the .ini file doesn't exist
   {
-    if (!(wfp = fopen(file_name, "r"))) // then make one
+    if (!(wfp = fopen(file_name, "w"))) // then make one
       return (0);
-    fprintf(wfp, "%s\n", t_section);
-    fprintf(wfp, "%s=%s\n", entry, buffer);
+    if (entry != NULL && buffer != NULL)
+    {
+      fprintf(wfp, "%s\n", t_section);
+      fprintf(wfp, "%s=%s\n", entry, buffer);
+    }
     fclose(wfp);
     return (1);
   }
+  int tmpfd = mkstemp(tmp_name);        // Get a temporary file name to copy to
   if (!(wfp = fdopen(tmpfd, "w")))
   {
     fclose(rfp);
@@ -185,8 +189,11 @@ int write_private_profile_string(const char *section, const char *entry,
     if (!read_line(rfp, buff))
     {
       /* Failed to find section, so add one to the end */
-      fprintf(wfp, "\n%s\n", t_section);
-      fprintf(wfp, "%s=%s\n", entry, buffer);
+      if (entry != NULL && buffer != NULL)
+      {
+        fprintf(wfp, "\n%s\n", t_section);
+        fprintf(wfp, "%s=%s\n", entry, buffer);
+      }
       /* Clean up and rename */
       fclose(rfp);
       fclose(wfp);
@@ -206,7 +213,8 @@ int write_private_profile_string(const char *section, const char *entry,
     if (!read_line(rfp, buff))
     {
       /* EOF without an entry so make one */
-      fprintf(wfp, "%s=%s\n", entry, buffer);
+      if (entry != NULL && buffer != NULL)
+        fprintf(wfp, "%s=%s\n", entry, buffer);
       /* Clean up and rename */
       fclose(rfp);
       fclose(wfp);
@@ -215,14 +223,25 @@ int write_private_profile_string(const char *section, const char *entry,
       return (1);
     }
 
-    if (!strncmp(buff, entry, len) || buff[0] == '\0')
-      break;
-    fprintf(wfp, "%s\n", buff);
+    if (entry != NULL)
+    {
+      if (!strncmp(buff, entry, len) || buff[0] == '\0')
+        break;
+    }
+    else
+    {
+      if (buff[0] == '\0')
+        break;
+    }
+
+    if (entry != NULL)
+      fprintf(wfp, "%s\n", buff);
   }
 
   if (buff[0] == '\0')
   {
-    fprintf(wfp, "%s=%s\n", entry, buffer);
+    if (entry != NULL && buffer != NULL)
+      fprintf(wfp, "%s=%s\n", entry, buffer);
     do
     {
       fprintf(wfp, "%s\n", buff);
@@ -231,7 +250,8 @@ int write_private_profile_string(const char *section, const char *entry,
   }
   else
   {
-    fprintf(wfp, "%s=%s\n", entry, buffer);
+    if (entry != NULL && buffer != NULL)
+      fprintf(wfp, "%s=%s\n", entry, buffer);
     while (read_line(rfp, buff))
     {
       fprintf(wfp, "%s\n", buff);
