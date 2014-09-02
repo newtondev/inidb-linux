@@ -9,9 +9,7 @@
 
 #define INIDB_VERSION_NUMBER "1.5"
 
-extern "C"
-{
-    void RVExtension(char *output, int outputSize, const char *function)
+extern "C" void RVExtension(char *output, int outputSize, const char *function)
     {
         outputSize -= 1;
 
@@ -184,5 +182,4 @@ extern "C"
 			}
 		}
 		return;
-	}
-};
+}
