@@ -27,7 +27,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 
 					if(file != NULL && sec != NULL && key != NULL) {
 						char realFile[PATH_MAX] = {0};
-						sprintf(realFile, "db\\%s.ini", file);
+						sprintf(realFile, "db/%s.ini", file);
 						char trueValue[8192] = {0};
                                                 std::string seed_str = "c0f916b469c17e0f967c6774e0d837fac0f916b469c17e0f967c6774e0d837fa";
                                                 char *seed_val = const_cast<char*> (seed_str.c_str());
@@ -53,7 +53,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 					if(file != NULL && sec != NULL && key != NULL && val != NULL) {
 
 						char realFile[PATH_MAX] = {0};
-						sprintf(realFile, "db\\%s.ini", file);
+						sprintf(realFile, "db/%s.ini", file);
 
 						if(Ini::Write(logger.dirFile(realFile), sec, key, val))	{
 							strncpy(output, "[true];", outputSize);
@@ -70,7 +70,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 
 					if(file != NULL && sec != NULL) {
 						char realFile[PATH_MAX] = {0};
-						sprintf(realFile, "db\\%s.ini", file);
+						sprintf(realFile, "db/%s.ini", file);
 
 						if(Ini::Deletesection(logger.dirFile(realFile), sec))	{
 							strncpy(output, "[true];", outputSize);
@@ -88,7 +88,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 
 					if(file != NULL && sec != NULL) {
 						char realFile[PATH_MAX] = {0};
-						sprintf(realFile, "db\\%s.ini", file);
+						sprintf(realFile, "db/%s.ini", file);
 
 						if(Ini::Deletekey(logger.dirFile(realFile), sec, key))	{
 							strncpy(output, "[true];", outputSize);
@@ -104,7 +104,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 					if(file != NULL) {
 						char realFile[PATH_MAX] = {0};
 
-						sprintf(realFile, "db\\%s.ini", file);
+						sprintf(realFile, "db/%s.ini", file);
 						FILE* fp = fopen(logger.dirFile(realFile), "r");
 
 						if(fp) {
@@ -122,7 +122,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 					if(file != NULL) {
 						char realFile[PATH_MAX] = {0};
 
-						sprintf(realFile, "db\\%s.ini", file);
+						sprintf(realFile, "db/%s.ini", file);
 
 						if(remove(logger.dirFile(realFile)) == 0) {
 							strncpy(output, "[true];", outputSize);
