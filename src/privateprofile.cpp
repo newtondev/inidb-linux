@@ -169,8 +169,8 @@ int write_private_profile_string(const char *section, const char *entry,
       return (0);
     if (entry != NULL && buffer != NULL)
     {
-      fprintf(wfp, "%s\n", t_section);
-      fprintf(wfp, "%s=%s\n", entry, buffer);
+      fprintf(wfp, "%s\r\n", t_section);
+      fprintf(wfp, "%s=%s\r\n", entry, buffer);
     }
     fclose(wfp);
     return (1);
@@ -191,8 +191,8 @@ int write_private_profile_string(const char *section, const char *entry,
       /* Failed to find section, so add one to the end */
       if (entry != NULL && buffer != NULL)
       {
-        fprintf(wfp, "\n%s\n", t_section);
-        fprintf(wfp, "%s=%s\n", entry, buffer);
+        fprintf(wfp, "\r\n%s\r\n", t_section);
+        fprintf(wfp, "%s=%s\r\n", entry, buffer);
       }
       /* Clean up and rename */
       fclose(rfp);
@@ -201,7 +201,7 @@ int write_private_profile_string(const char *section, const char *entry,
       rename(tmp_name, file_name);
       return (1);
     }
-    fprintf(wfp, "%s\n", buff);
+    fprintf(wfp, "%s\r\n", buff);
   }
   while (strcmp(buff, t_section));
 
@@ -214,7 +214,7 @@ int write_private_profile_string(const char *section, const char *entry,
     {
       /* EOF without an entry so make one */
       if (entry != NULL && buffer != NULL)
-        fprintf(wfp, "%s=%s\n", entry, buffer);
+        fprintf(wfp, "%s=%s\r\n", entry, buffer);
       /* Clean up and rename */
       fclose(rfp);
       fclose(wfp);
@@ -235,26 +235,26 @@ int write_private_profile_string(const char *section, const char *entry,
     }
 
     if (entry != NULL)
-      fprintf(wfp, "%s\n", buff);
+      fprintf(wfp, "%s\r\n", buff);
   }
 
   if (buff[0] == '\0')
   {
     if (entry != NULL && buffer != NULL)
-      fprintf(wfp, "%s=%s\n", entry, buffer);
+      fprintf(wfp, "%s=%s\r\n", entry, buffer);
     do
     {
-      fprintf(wfp, "%s\n", buff);
+      fprintf(wfp, "%s\r\n", buff);
     }
     while (read_line(rfp, buff));
   }
   else
   {
     if (entry != NULL && buffer != NULL)
-      fprintf(wfp, "%s=%s\n", entry, buffer);
+      fprintf(wfp, "%s=%s\r\n", entry, buffer);
     while (read_line(rfp, buff))
     {
-      fprintf(wfp, "%s\n", buff);
+      fprintf(wfp, "%s\r\n", buff);
     }
   }
 
