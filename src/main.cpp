@@ -16,7 +16,13 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
         if(strcmp(function, "version") == 0) {
 			strncpy(output, INIDB_VERSION_NUMBER, outputSize);
 		} else	{
-			char* func = strtok((char*)function, ";");
+			char* params = strtok((char*)function, ";");
+			//char* func = strtok(params, ";");
+
+			strncpy(output, params, outputSize);
+			return;
+
+			/**
 
 			if(func) {
 				if(strcmp(func, "read") == 0) {
@@ -180,6 +186,7 @@ extern "C" void RVExtension(char *output, int outputSize, const char *function)
 			} else {
 				strncpy(output, "[false];", outputSize);
 			}
+			*/
 		}
 		return;
 }

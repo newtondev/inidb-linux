@@ -13,6 +13,9 @@ int main()
   std::cout << "Hello World!" << std::endl;
 
   func(output, 1024, "version");
+  std::cout << output << std::endl;
+
+  func(output, 1024, "read;test;mysection;name");
 
   std::cout << output << std::endl;
 
