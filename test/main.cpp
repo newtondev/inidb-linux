@@ -15,7 +15,7 @@ int main()
   func(output, 1024, "version");
   std::cout << output << std::endl;
 
-  func(output, 1024, "read;test;mysection;name");
+  func(output, 1024, "read;A3W_76561197999882926;PlayerSave;AssignedItems");
 
   std::cout << output << std::endl;
 
