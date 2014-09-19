@@ -1,7 +1,6 @@
 inidb-linux
 ===========
 
-<<<<<<< HEAD
 @inidb Arma 3 extension for Linux by LimpinBizkit (http://steamcommunity.com/id/kratosza). A simple server-side database extension using INI files on Linux.
 
 A port to Linux C++ of the project (Windows VC) found here https://github.com/code34/-inidbi by:
