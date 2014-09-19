@@ -8,7 +8,7 @@ A port to Linux C++ of the project (Windows VC) found here https://github.com/co
 * nicolas_boiteux@yahoo.fr
 * SicSemperTyrannis
 
-This is still under development with no release at this time. Will keep you posted.
+This is the first reasonably stable release. Please let me know if there are any issues.
 
 ## How to Install
 ~~~
@@ -25,15 +25,12 @@ cd <reponame>
 ~~~
 
 How to use:
-To use "iniDB" in your mission, install the extension in your ARMA2 or ARMA3 directory by copying the entire "@inidb" folder included in the download to your root directory.
-Don't forget to copy over over or create the /db/ folder.
+To use "iniDB" in your mission, install the extension in your ARMA2 or ARMA3 directory by making an @inidb folder in the root of your ArmA3 installation and copying over the files required.
+Don't forget to create a /db/ folder where your db files will be stored per player.
 It should look like: /Arma 3/@inidbi/iniDB.so
 It should look like: /Arma 3/@inidbi/db/
 It should look like: /Arma 3/@inidbi/Addons/inidbi.pbo
-=======
-@inidb Arma 3 extension ported to Linux by LimpinBizkit (http://steamcommunity.com/id/kratosza).
 
-A simple server-side database extension using INI files. A port of the project found here: https://github.com/code34/-inidbi
+Please feel free to get in contact with me on steam if you require my assistance. My details are mentioned above.
 
-This is still under development with no release at this time. Will keep you posted.
->>>>>>> 7bc00638d2d6f5a76aca843c7b88c30db52f79dc
+Thanks
