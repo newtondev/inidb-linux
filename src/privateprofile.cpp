@@ -131,9 +131,9 @@ int get_private_profile_string(const char *section, const char *entry,
 
   if (len > 0) {
     ep = strrchr(buff, '=');	// parse out the equal sign
-    ep++;
+    ep++; ep++;
     /* Copy up to buffer_len chars to buffer */
-    strncpy(buffer, ep, buffer_len - 1);
+    strncpy(buffer, ep, strlen(ep)-1);
   }
 
   buffer[buffer_len - 1] = '\0';
