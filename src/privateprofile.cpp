@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <cctype>
 
-#define MAX_LINE_LENGTH	512
+#define MAX_LINE_LENGTH	5120
 
 int read_line(FILE *fp, char *bp)
 {
