@@ -9,7 +9,7 @@ A port to Linux C++ of the project (Windows VC) found here https://github.com/co
 
 This is the first reasonably stable release. Please let me know if there are any issues.
 
-## How to Install
+## How to Install on Ubuntu 14.04 LTS
 ~~~
 sudo -i 
 cd /etc/apt/sources.list.d
